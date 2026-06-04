@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: smartdorm
+    env: node
+    region: singapore
+    buildCommand: npm install && npm run build && cd api && npm install
+    startCommand: cd api && npx tsx src/index.ts
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
